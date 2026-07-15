@@ -12,6 +12,13 @@
     <div>
     <p><%=oneEntry.title%>: <%=oneEntry.entryBody%></p>
     </div>
+    <% if(String(oneEntry.owner) === String(user._id)){ %>
+        <a href="/entries/<%= oneEntry._id%>/edit">edit</a>
+
+        <a href="/entries/<%= oneEntry._id%>?_method=DELETE" method="post">delete</a>
+        
+        <%}%>
     <%}%>
+    
 </body>
 </html>

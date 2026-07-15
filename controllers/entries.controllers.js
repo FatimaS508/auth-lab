@@ -32,8 +32,12 @@ router.get('/',isSignedIn, async (req,res)=>{
 })
 
 router.get('/my-entries',isSignedIn, async (req,res)=>{
-    const myEntries= await entry.find({owner: req.params._id})
-    res.render('entries/my-entries.ejs', {entries: myEntries})
+    const myEntries= await entry.find({owner: req.session.user._id}) //chech if owner of entry matches the user who logged in
+    
+    res.render('entries/my-entries.ejs', {entries: myEntries, user_id: req.session.user}) 
+    console.log(req.session);
+    console.log(req.session.user);
+    console.log(req.session.myEntries);
 })
 
 module.exports= router
