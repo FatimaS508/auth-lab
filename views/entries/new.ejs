@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>Create your new Journal</h1>
+
+    <form action="/entries" method="post">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text">
+
+        <label for="entryBody">Content</label>
+        <input id="entryBody" name="entryBody" type="text">
+
+        <label for="isPublic">isPublic</label>
+        <input id="isPublic" name="isPublic" type="checkbox">
+
+        <button>Create</button>
+
+    </form>
+</body>
+</html>
